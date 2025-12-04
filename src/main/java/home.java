@@ -5,7 +5,7 @@
 
 /**
  *
- * @author Feby Adel
+ *
  */
 public class home extends javax.swing.JFrame {
     

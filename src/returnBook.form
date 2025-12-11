@@ -195,6 +195,9 @@
           <Image iconType="3" name="/photo_2025-12-10_21-57-51.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel6"/>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[700, 450]"/>
+        </Property>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

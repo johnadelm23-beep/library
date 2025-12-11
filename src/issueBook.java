@@ -96,6 +96,7 @@ public class issueBook extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photo_2025-12-10_21-57-51.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
+        jLabel5.setPreferredSize(new java.awt.Dimension(700, 450));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

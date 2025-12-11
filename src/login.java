@@ -68,8 +68,7 @@ public class login extends javax.swing.JFrame {
         getContentPane().add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 350, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photo_2025-12-10_17-04-19.jpg"))); // NOI18N
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, 1270, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -90, 1330, 960));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

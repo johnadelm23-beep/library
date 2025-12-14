@@ -10,7 +10,7 @@
 import java.sql.*;
 import Project.ConnectionProvider;
 import javax.swing.JOptionPane;
-//import net.proteanit.sql.DbUtils;
+import net.proteanit.sql.DbUtils;
 public class statistics extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(statistics.class.getName());
@@ -20,6 +20,12 @@ public class statistics extends javax.swing.JFrame {
      */
     public statistics() {
         initComponents();
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+    public void componentShown(java.awt.event.ComponentEvent evt) {
+        loadStatisticsData(evt);
+    }
+});
+        
     }
 
     /**
@@ -40,6 +46,7 @@ public class statistics extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,14 +64,18 @@ public class statistics extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(325, 125));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(700, 450));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 loadStatisticsData(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Issue Details");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, -1, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 204));
 
@@ -82,8 +93,12 @@ public class statistics extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 526, 106));
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Return Details");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, -1));
 
         jScrollPane3.setBackground(new java.awt.Color(255, 255, 204));
 
@@ -101,6 +116,8 @@ public class statistics extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jTable3);
 
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 526, 112));
+
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setText("Close");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -108,44 +125,11 @@ public class statistics extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 400, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(331, 331, 331)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(126, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1)))
-                        .addGap(48, 48, 48))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(299, 299, 299))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(32, 32, 32))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/photo_2025-12-10_21-57-51.jpg"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -157,6 +141,7 @@ public class statistics extends javax.swing.JFrame {
 
     private void loadStatisticsData(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_loadStatisticsData
         // TODO add your handling code here:
+        System.out.println("statistics opned");
         try{
             Connection con=ConnectionProvider.getCon();
             Statement st=con.createStatement();
@@ -168,11 +153,11 @@ public class statistics extends javax.swing.JFrame {
                                         book.name, 
                                         issue.issueDate, 
                                         issue.dueDate 
-                                        from student inner join book inner join issue
-                                        where book.bookID=issue.bookID and 
-                                        student.studentID=issue.studentID and 
-                                        issue.returnBook='NO'""");
-            jTable1.setModel(DbUtils.resultSetoTableModel(rs));
+                                        FROM issue
+                                        INNER JOIN student ON student.studentID = issue.studentID
+                                        INNER JOIN book ON book.bookID = issue.bookID
+                                        WHERE issue.returnBook = 'NO'""");
+          jTable1.setModel(DbUtils.resultSetToTableModel(rs));
           ResultSet rs1=st.executeQuery("""
                                         select 
                                         issue.studentID, 
@@ -181,15 +166,16 @@ public class statistics extends javax.swing.JFrame {
                                         book.name, 
                                         issue.issueDate, 
                                         issue.dueDate 
-                                        from student inner join book inner join issue
-                                        where book.bookID=issue.bookID and 
-                                        student.studentID=issue.studentID and 
-                                        issue.returnBook='YES'""");
-            jTable2.setModel(DbUtils.resultSetoTableModel(rs1));
+                                        FROM issue
+                                        INNER JOIN student ON student.studentID = issue.studentID
+                                        INNER JOIN book ON book.bookID = issue.bookID
+                                        WHERE issue.returnBook = 'YES'""");
+           jTable2.setModel(DbUtils.resultSetToTableModel(rs1));
             
         }
         catch(Exception e){
-        JOptionPane.showMessageDialog(null, "Connection Failed ");
+        JOptionPane.showMessageDialog(null, e.getMessage());
+          e.printStackTrace();
         }
     }//GEN-LAST:event_loadStatisticsData
 
@@ -222,6 +208,7 @@ public class statistics extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
